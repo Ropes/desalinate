@@ -6,7 +6,7 @@ import (
 )
 
 func TestIO(t *testing.T) {
-	raw, err := ReadFile("data.sls")
+	raw, err := ReadFile("resources/mini.yaml")
 	if err != nil {
 		t.Errorf("%v\n", err)
 	}

@@ -6,7 +6,13 @@ import (
 	"gopkg.in/yaml.v1"
 )
 
-type S struct{}
+type S struct {
+	Env    string
+	User   string
+	Master string
+}
+
+type T struct{}
 
 func ReadFile(path string) ([]byte, error) {
 	data, err := ioutil.ReadFile(path)
