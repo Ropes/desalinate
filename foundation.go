@@ -1,18 +1,11 @@
 package desalinate
 
 import (
+	"fmt"
 	"io/ioutil"
 
 	"gopkg.in/yaml.v1"
 )
-
-type S struct {
-	Env    string
-	User   string
-	Master string
-}
-
-type T struct{}
 
 func ReadFile(path string) ([]byte, error) {
 	data, err := ioutil.ReadFile(path)
@@ -22,9 +15,9 @@ func ReadFile(path string) ([]byte, error) {
 	return data, nil
 }
 
-func ReadYaml(str []byte) (interface{}, error) {
-	s := S{}
+func ReadYaml(str []byte, s interface{}) (interface{}, error) {
 	err := yaml.Unmarshal(str, &s)
+	fmt.Printf("%#v\n", s)
 	if err != nil {
 		return nil, err
 	}
